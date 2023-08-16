@@ -2,7 +2,7 @@ name: Build-Deploy-Python-API
 
 on : [push]
 
-job:
+jobs:
   build: 
     runs-on: ubuntu-latest
     steps:
