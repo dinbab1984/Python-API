@@ -6,7 +6,7 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps:
-      name: git pull
-      uses: action/checkout@v3
-      name: My message
-      run: echo "Hello World from Dinesh"
+      - name: git pull
+        uses: action/checkout@v3
+      - name: My message
+        run: echo "Hello World from Dinesh"
