@@ -27,3 +27,4 @@ class User(Base):
     password = Column(String,nullable=False) 
     created_at = Column(TIMESTAMP(timezone=False),server_default=text("now()"))
     updated_at = Column(TIMESTAMP(timezone=False),server_default=text("now()"),onupdate=text("now()"))
+

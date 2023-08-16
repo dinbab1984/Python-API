@@ -7,8 +7,8 @@ class Users(BaseModel):
     email: EmailStr
     password: str
         
-class UsersResponse(Users):
-    password: str = Field(exclude=True)
+class UsersResponse(BaseModel):
+    email: EmailStr
     id: int
     created_at: datetime
     class ConfigDict:
