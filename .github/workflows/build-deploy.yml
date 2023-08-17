@@ -47,6 +47,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 #    needs: [build]
+    container:
+      image: python:3.10
     services:
       postgres:
         image: postgres
