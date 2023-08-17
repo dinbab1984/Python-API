@@ -71,3 +71,4 @@ jobs:
         uses: tj-actions/docker-run@v2
         with:
           image: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
+          name: python-api
