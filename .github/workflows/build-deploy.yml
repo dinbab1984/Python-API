@@ -83,3 +83,4 @@ jobs:
           name: python-api
           options:
             --env JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
+            --env DATABASE_NAME=${{secrets.DATABASE_NAME}}
