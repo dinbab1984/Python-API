@@ -68,6 +68,6 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Image run
-      uses: tj-actions/docker-run@v2
-      with:
-        image: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
+        uses: tj-actions/docker-run@v2
+        with:
+          image: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
