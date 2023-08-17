@@ -47,15 +47,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 #    needs: [build]
-    env:
-      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
-      DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
-      DATABASE_PORT: ${{secrets.DATABASE_PORT}}
-      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
-      DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-      JWT_SECRET_KEY: ${{secrets.JWT_SECRET_KEY}}
-      JWT_ALGORITHM: ${{secrets.JWT_ALGORITHM}}
-      JWT_ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
     steps:
       - name: test
         run : echo "chumma test ma"
@@ -82,5 +73,11 @@ jobs:
           image: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
           name: python-api
           options:
-            --env JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
             --env DATABASE_NAME=${{secrets.DATABASE_NAME}}
+            --env DATABASE_HOSTNAME=${{secrets.DATABASE_HOSTNAME}}
+            --env DATABASE_PORT=${{secrets.DATABASE_PORT}}
+            --env DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}
+            --env DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}
+            --env JWT_SECRET_KEY=${{secrets.JWT_SECRET_KEY}}
+            --env JWT_ALGORITHM=${{secrets.JWT_ALGORITHM}}
+            --env JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
