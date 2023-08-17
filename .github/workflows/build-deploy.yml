@@ -62,35 +62,35 @@ jobs:
           --health-retries 5
     steps:
       - name: test
-        run : echo "chumma test ma"
-      - name: Login dockerhub
-        uses: docker/login-action@v2
-        with:
-          username: ${{secrets.DOCKER_HUB_USERNAME}}
-          password: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
-      - name: docker setup 
-        id: buildx
-        uses: docker/setup-buildx-action@v2
-      - name: docker build image and push
-        id: docker_build
-        uses: docker/build-push-action@v4
-        with:
-          builder: ${{steps.buildx.outputs.name}}
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-      - name: Image run
-        uses: tj-actions/docker-run@v2
-        with:
-          image: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
-          name: python-api
-          options:
-            --env DATABASE_NAME=${{secrets.DATABASE_NAME}}
-            --env DATABASE_HOSTNAME=postgres
-            --env DATABASE_PORT=${{secrets.DATABASE_PORT}}
-            --env DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}
-            --env DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}
-            --env JWT_SECRET_KEY=${{secrets.JWT_SECRET_KEY}}
-            --env JWT_ALGORITHM=${{secrets.JWT_ALGORITHM}}
-            --env JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
+        run : echo ${{services.postgres.outputs.name}}
+      #- name: Login dockerhub
+      #  uses: docker/login-action@v2
+      #  with:
+      #    username: ${{secrets.DOCKER_HUB_USERNAME}}
+      #    password: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
+      #- name: docker setup 
+      #  id: buildx
+      #  uses: docker/setup-buildx-action@v2
+      #- name: docker build image and push
+      #  id: docker_build
+      #  uses: docker/build-push-action@v4
+      #  with:
+      #    builder: ${{steps.buildx.outputs.name}}
+      #    push: true
+      #    tags: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
+      #    cache-from: type=local,src=/tmp/.buildx-cache
+      #    cache-to: type=local,dest=/tmp/.buildx-cache
+      #- name: Image run
+      #  uses: tj-actions/docker-run@v2
+      #  with:
+      #    image: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
+      #    name: python-api
+      #    options:
+      #      --env DATABASE_NAME=${{secrets.DATABASE_NAME}}
+      #      --env DATABASE_HOSTNAME=postgres
+      #      --env DATABASE_PORT=${{secrets.DATABASE_PORT}}
+      #      --env DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}
+      #      --env DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}
+      #      --env JWT_SECRET_KEY=${{secrets.JWT_SECRET_KEY}}
+      #      --env JWT_ALGORITHM=${{secrets.JWT_ALGORITHM}}
+      #      --env JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
