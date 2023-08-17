@@ -67,6 +67,14 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/python-api:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
+      - name: Setp postgress container
+        uses: tj-actions/docker-run@v2
+        with:
+          image: postgres:latest
+          name: postgres
+          options:
+            --env POSTGRES_DB=${{secrets.DATABASE_NAME}}
+            --env POSTGRES_PASSWORD=${{secrets.DATABASE_PASSWORD}}
       - name: Image run
         uses: tj-actions/docker-run@v2
         with:
