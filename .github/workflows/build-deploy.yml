@@ -87,7 +87,7 @@ jobs:
           name: python-api
           options:
             --env DATABASE_NAME=${{secrets.DATABASE_NAME}}
-            --env DATABASE_HOSTNAME=${{secrets.DATABASE_HOSTNAME}}
+            --env DATABASE_HOSTNAME=postgres
             --env DATABASE_PORT=${{secrets.DATABASE_PORT}}
             --env DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}
             --env DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}
