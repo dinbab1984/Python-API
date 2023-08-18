@@ -33,6 +33,8 @@ jobs:
           - 8001:8000
 
     steps:
-      - name: Get users from python-api
+      - name: docker ps
         #run: curl "http://localhost:8001/"
         run: docker ps
+      - name: curl localhost
+        run: curl -X GET 0.0.0.0:8080/
