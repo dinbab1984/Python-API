@@ -66,19 +66,29 @@ jobs:
         with:
           url: 'http://localhost:8000/'
           method: 'GET'
-      - name: Show Response
+      - name: Show Get Welcome message Response
         run: |
           echo ${{ steps.getRoot.outputs.response }}
           echo ${{ steps.getRoot.outputs.headers }}
       - name: Http Post create user
+        id: postUser
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'http://localhost:8000/users'
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
           data: '{"email": "dinesh@gmail.com", "password": "password123"}'
+      - name: Show Post create user Response
+        run: |
+          echo ${{ steps.postUser.outputs.response }}
+          echo ${{ steps.postUser.outputs.headers }}
       - name: Http Get users
+        id: getUser
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'http://localhost:8000/users'
           method: 'GET'
+      - name: Show Get users Response
+        run: |
+          echo ${{ steps.getUser.outputs.response }}
+          echo ${{ steps.getUser.outputs.headers }}
