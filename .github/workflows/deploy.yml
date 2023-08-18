@@ -30,8 +30,8 @@ jobs:
           JWT_ALGORITHM: ${{secrets.JWT_ALGORITHM}}
           JWT_ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
         ports:
-          - 8000:8000
+          - 8001:8000
 
     steps:
       - name: Get users from python-api
-        run: curl "http://python-api:8000/"
+        run: curl "http://localhost:8001/"
