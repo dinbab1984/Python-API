@@ -1,23 +1,10 @@
-name: Deploy-Python-API
+name: Deploy-Containers
 
 on : [push]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    container: 
-      image: dinbab1984/python-api:latest
-      env:
-        DATABASE_NAME: ${{secrets.DATABASE_NAME}}
-        DATABASE_HOSTNAME: postgres
-        DATABASE_PORT: ${{secrets.DATABASE_PORT}}
-        DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
-        DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-        JWT_SECRET_KEY: ${{secrets.JWT_SECRET_KEY}}
-        JWT_ALGORITHM: ${{secrets.JWT_ALGORITHM}}
-        JWT_ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
-      ports:
-        - 8001:8000
     services:
       postgres:
         image: postgres
@@ -31,6 +18,20 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+      python-api:
+        image: dinbab1984/python-api:latest
+        env:
+          DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+          DATABASE_HOSTNAME: postgres
+          DATABASE_PORT: ${{secrets.DATABASE_PORT}}
+          DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
+          DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+          JWT_SECRET_KEY: ${{secrets.JWT_SECRET_KEY}}
+          JWT_ALGORITHM: ${{secrets.JWT_ALGORITHM}}
+          JWT_ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.JWT_ACCESS_TOKEN_EXPIRE_MINUTES}}
+        ports:
+          - 8001:8000
+
     steps:
       - name: docker ps
         run: docker ps
