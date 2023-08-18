@@ -35,5 +35,9 @@ jobs:
     steps:
       - name: docker ps
         run: docker ps
-      - name: curl localhost
-        run: curl -v http://localhost:8001/
+          steps:
+      - name: HTTP request
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'http://localhost:8001/'
+          method: 'GET'
