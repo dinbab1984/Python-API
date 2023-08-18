@@ -34,7 +34,6 @@ jobs:
 
     steps:
       - name: docker ps
-        #run: curl "http://localhost:8001/"
         run: docker ps
       - name: curl localhost
-        run: curl -X GET 0.0.0.0:8001/
+        run: curl -X GET http://localhost:8001/
