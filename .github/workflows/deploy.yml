@@ -35,7 +35,6 @@ jobs:
     steps:
       - name: docker ps
         run: docker ps
-          steps:
       - name: HTTP request
         uses: fjogeleit/http-request-action@v1
         with:
