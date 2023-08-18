@@ -5,7 +5,8 @@ on : [push]
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    container: dinbab1984/python-api:latest
+    container: 
+      image: dinbab1984/python-api:latest
       env:
         DATABASE_NAME: ${{secrets.DATABASE_NAME}}
         DATABASE_HOSTNAME: postgres
