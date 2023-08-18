@@ -34,4 +34,4 @@ jobs:
 
     steps:
       - name: Get users from python-api
-        run: curl "http://localhost:8000/"
+        run: curl "http://python-api:8000/"
