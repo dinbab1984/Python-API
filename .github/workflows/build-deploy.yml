@@ -1,6 +1,6 @@
 name: Build-Deploy-Python-API
 
-on : [push]
+#on : [push]
 
 jobs:
 #  build: 
