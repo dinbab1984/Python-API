@@ -35,3 +35,5 @@ jobs:
     steps:
       - name: docker ps
         run: docker ps
+      - name: run curl
+        run: curl -Lk http://localhost:8000/
