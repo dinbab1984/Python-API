@@ -38,5 +38,5 @@ jobs:
       - name: HTTP request
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'http://localhost:8001/'
+          url: 'http://localhost:8001/users'
           method: 'GET'
