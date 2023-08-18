@@ -60,5 +60,7 @@ jobs:
     steps:
       - name: docker ps
         run: docker ps
-      - name: run curl
+      - name: run curl root
         run: curl -Lkv http://localhost:8000/
+      - name: run curl users
+        run: curl -Lkv http://localhost:8000/users/
