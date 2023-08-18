@@ -36,4 +36,4 @@ jobs:
       - name: docker ps
         run: docker ps
       - name: run curl
-        run: curl -Lk http://localhost:8000/
+        run: curl -Lkv http://localhost:8000/
