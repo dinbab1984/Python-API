@@ -61,10 +61,15 @@ jobs:
       - name: docker ps
         run: docker ps
       - name: Http Get Welcome message
+        id: getRoot
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'http://localhost:8000/'
           method: 'GET'
+      - name: Show Response
+        run: |
+          echo ${{ steps.getRoot.outputs.response }}
+          echo ${{ steps.getRoot.outputs.headers }}
       - name: Http Post create user
         uses: fjogeleit/http-request-action@v1
         with:
