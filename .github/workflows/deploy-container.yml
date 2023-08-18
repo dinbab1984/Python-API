@@ -60,14 +60,20 @@ jobs:
     steps:
       - name: docker ps
         run: docker ps
-      - name: run curl get root
-        run: curl -Lkv http://localhost:8000/
-      - name: Deploy Stage
+      - name: Http Get Welcome message
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'http://localhost:8000/'
+          method: 'GET'
+      - name: Http Post create user
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'http://localhost:8000/users'
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
           data: '{"email": "dinesh@gmail.com", "password": "password123"}'
-      - name: run curl get users
-        run: curl -Lkv http://localhost:8000/users/
+      - name: Http Get users
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'http://localhost:8000/users'
+          method: 'GET'
