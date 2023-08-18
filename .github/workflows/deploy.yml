@@ -34,4 +34,5 @@ jobs:
 
     steps:
       - name: Get users from python-api
-        run: curl "http://localhost:8001/"
+        #run: curl "http://localhost:8001/"
+        run: docker ps
