@@ -10,7 +10,7 @@ models.Base.metadata.create_all(bind=engine)
 
 router = APIRouter(
     prefix="/login"
-    , tags=["login"]
+    , tags=["Login"]
     )
 
 @router.post("/", response_model=schemas.Token)

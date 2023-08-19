@@ -8,7 +8,7 @@ from ..utils import hash
 models.Base.metadata.create_all(bind=engine)
 
 router = APIRouter(
-    prefix="/users"
+    prefix="/Users"
     , tags=["users"]
     )
 

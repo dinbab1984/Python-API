@@ -12,9 +12,9 @@ app = FastAPI()
 #     allow_methods=["*"],
 #     allow_headers=["*"],
 # )
-app.include_router(customers.router)
 app.include_router(users.router)
 app.include_router(login.router)
+app.include_router(customers.router)
 
 @app.get("/")
 def root():
