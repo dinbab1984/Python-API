@@ -8,8 +8,8 @@ from ..utils import hash
 models.Base.metadata.create_all(bind=engine)
 
 router = APIRouter(
-    prefix="/Users"
-    , tags=["users"]
+    prefix="/users"
+    , tags=["Users"]
     )
 
 
