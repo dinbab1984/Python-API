@@ -15,7 +15,7 @@
 3. Start docker engine locally
 4. Go to the cloned repository directory i.e. Python-API
 5. Run docker build as follows : ````docker build -t python-api .````
-6. Run container as follows: ````docker-compose -f docker-compose.yml up````
+6. Run container as follows: ````docker-compose -f docker-compose.yml up -d````
 7. Test the routes using POSTMAN tool or other equivalent tools.
 8. Please refer the automatic API documentation in the URL: http://localhost:8000/docs
 9. Stop and remove container as follows: ````docker-compose -f docker-compose.yml down -v````
