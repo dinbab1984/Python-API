@@ -2,6 +2,7 @@ version: '3.0'
 services:
   api:
     image: python-api
+    container_name: python_api
     ports: 
       - 8000:8000
     depends_on:
