@@ -1,6 +1,6 @@
 # Python-API
 
-# Demo API developed by using FastAPI
+## Demo API developed by using FastAPI
 
 #### This API consists of  3 routes such as Users, Login and Customers
 
@@ -8,7 +8,7 @@
 2. Login: http://localhost:8000/login - to login as a user
 3. Customers : http://localhost:8000/customers - to create , list , update , delete customers ( only works if logged in as a user)
 
-# You can easily run this locally on your local docker engine, please follow the steps below:
+#### You can easily run this locally on your local docker engine, please follow the steps below:
 
 1. Clone this repository locally
 2. Install docker locally
